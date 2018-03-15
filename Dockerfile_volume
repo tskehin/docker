@@ -1,0 +1,6 @@
+# docker build -f Dockerfile_volume -t tskehin/yetube_volume:1.0 .
+FROM ubuntu:17.10
+
+RUN mkdir /yetube_videos
+
+COPY src/Content/ /yetube_videos/

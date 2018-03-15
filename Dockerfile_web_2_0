@@ -1,0 +1,11 @@
+FROM php:7.0-apache
+
+# Copy over my source files
+COPY src/web/2.0/ /var/www/html/
+
+RUN mkdir /var/www/html/yetube_videos
+
+EXPOSE 80
+
+# Need to install the sqli php extension
+RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli 

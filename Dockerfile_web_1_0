@@ -1,0 +1,14 @@
+# offical php image 
+FROM php:7.0-apache
+
+# Copy over my source files
+COPY src/web/1.0/ /var/www/html/
+
+# create directory the persistent data volume will be mounted to
+RUN mkdir /var/www/html/yetube_videos
+
+# expose port 80 this container
+EXPOSE 80
+
+# Need to install the sqli php extension
+RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli 

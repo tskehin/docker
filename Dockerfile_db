@@ -1,0 +1,8 @@
+# docker build -f Dockerfile_db -t tskehin/yetube_db:1.0 .
+FROM mysql:5.7
+
+# Set root password
+ENV MYSQL_ROOT_PASSWORD=root
+
+# Copy datadump
+COPY src/db/yetube.sql /docker-entrypoint-initdb.d/yetube.sql
